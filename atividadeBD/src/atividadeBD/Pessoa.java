@@ -1,6 +1,6 @@
 package atividadeBD;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -26,8 +26,8 @@ public class Pessoa implements Identificavel{
 	@Column(insertable = false, updatable = false)
 	private Long id;
 	private String nome;
-	private String idade;
-	private Date dataNascimento;
+	private int idade;
+	private String dataNascimento;
 	
 	public Long getId() {
 		return id;
@@ -41,16 +41,17 @@ public class Pessoa implements Identificavel{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getIdade() {
+	
+	public int getIdade() {
 		return idade;
 	}
-	public void setIdade(String idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	@Override
@@ -59,7 +60,7 @@ public class Pessoa implements Identificavel{
 		int result = 1;
 		result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((idade == null) ? 0 : idade.hashCode());
+		result = prime * result + idade;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -82,10 +83,7 @@ public class Pessoa implements Identificavel{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (idade == null) {
-			if (other.idade != null)
-				return false;
-		} else if (!idade.equals(other.idade))
+		if (idade != other.idade)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -98,6 +96,5 @@ public class Pessoa implements Identificavel{
 	public String toString() {
 		return "Pessoa [id=" + id + ", nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + "]";
 	}
-	
 	
 }
