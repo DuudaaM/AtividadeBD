@@ -8,7 +8,7 @@ package atividadeBD;
 
 	public class DAO<E extends Identificavel> {
 
-		private EntityManagerFactory factory = Persistence.createEntityManagerFactory("musica_poobd");
+		private EntityManagerFactory factory = Persistence.createEntityManagerFactory("Atividade");
 		
 		public void save(E e) {
 			EntityManager em = factory.createEntityManager();
