@@ -7,6 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		for(int i = 0; i < 3000; i++) {
 		Aluno aluno = new Aluno();
 		aluno.setId(1l);
 		aluno.setNome("Ana");
@@ -34,5 +35,7 @@ public class Main {
 		tecnico.setDataNascimento("01/01/1985");
 		DAO<Tecnico> daao = new DAO<Tecnico>();
 		daao.save(tecnico);
+		
+	
 		}
-}
+}}

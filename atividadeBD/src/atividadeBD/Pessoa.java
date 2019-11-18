@@ -19,11 +19,13 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "id", length = 1, discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("P")
+
 public class Pessoa implements Identificavel{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(insertable = false, updatable = false)
+	
 	private Long id;
 	private String nome;
 	private int idade;
